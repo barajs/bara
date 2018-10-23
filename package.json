@@ -7,7 +7,8 @@
   "private": true,
   "scripts": {
     "test": "lerna run test",
-    "test:watch": "lerna run test:watch --stream"
+    "test:watch": "lerna run test:watch --stream",
+    "semantic-release": "lerna exec --concurrency 1 -- semantic-release -e semantic-release-monorepo --tag-format='${LERNA_PACKAGE_NAME}-v\\${version}'"
   },
   "workspaces": [
     "packages/*"
