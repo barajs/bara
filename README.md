@@ -2,7 +2,7 @@
   <img align="center" src="./img/BaraBanner.png" width="100%" alt="Bara" />
 </p>
 
-[![Version](https://img.shields.io/npm/v/bara.svg)](https://npmjs.org/package/bara) [![License](https://img.shields.io/npm/l/bara.svg)](https://github.com/barajs/bara/blob/master/package.json)
+[![Build Status](https://travis-ci.org/barajs/bara.svg?branch=master)](https://travis-ci.org/barajs/bara) [![Version](https://img.shields.io/npm/v/bara.svg)](https://npmjs.org/package/bara) [![License](https://img.shields.io/npm/l/bara.svg)](https://github.com/barajs/bara/blob/master/package.json)
 
 Created for creating! BaraJS is a framework created based on JavaScript technology, implemented with TypeScript. BaraJS helps you develope an organized and visualized source code with the design pattern of triggering system with the help of reactive programming.
 BaraJS designed to be plug and play any where in the application. You can develop a Bara module and use it anywhere in the Bara application.
