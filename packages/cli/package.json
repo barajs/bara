@@ -1,12 +1,12 @@
 {
   "name": "bara",
-  "description": "Created to create any system with the power of words.",
-  "version": "0.1.0",
+  "description": "BaraJS CLI. Created for creating!",
+  "version": "0.0.0-development",
   "author": "nampdn @nampdn",
   "bin": {
     "bara": "./bin/run"
   },
-  "bugs": "https://github.com/nampdn/bara/issues",
+  "bugs": "https://github.com/barajs/bara/issues",
   "dependencies": {
     "@oclif/command": "^1",
     "@oclif/config": "^1",
@@ -39,7 +39,7 @@
     "/npm-shrinkwrap.json",
     "/oclif.manifest.json"
   ],
-  "homepage": "https://github.com/nampdn/bara",
+  "homepage": "https://github.com/barajs/bara",
   "keywords": [
     "oclif"
   ],
@@ -52,7 +52,7 @@
       "@oclif/plugin-help"
     ]
   },
-  "repository": "nampdn/bara",
+  "repository": "barajs/bara",
   "scripts": {
     "postpack": "rm -f oclif.manifest.json npm-shrinkwrap.json",
     "posttest": "tslint -p test -t stylish",
