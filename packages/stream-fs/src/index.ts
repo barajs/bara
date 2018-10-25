@@ -1,3 +1,1 @@
-export default () => {
-  return 'Hello World'
-}
+export {streamFs as default} from './stream-fs'
