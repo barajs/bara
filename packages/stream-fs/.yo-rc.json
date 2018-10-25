@@ -1,0 +1,10 @@
+{
+  "generator-vlib": {
+    "pkg": "@bara/stream-fs",
+    "description": "BaraJS stream file system official module.",
+    "githubUsername": "barajs",
+    "repoName": "bara",
+    "name": "nampdn",
+    "email": "nampdn@protonmail.com"
+  }
+}
