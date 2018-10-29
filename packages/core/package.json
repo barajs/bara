@@ -5,7 +5,7 @@
   "main": "dist/index.js",
   "typings": "build/index.d.ts",
   "module": "build/index.js",
-  "repository": "BaraJS/bara",
+  "repository": "https://github.com/barajs/bara",
   "license": "MIT",
   "author": {
     "name": "nampdn",
