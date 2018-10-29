@@ -40,3 +40,5 @@ USAGE
 ```
 
 <!-- installationstop -->
+
+[![FOSSA Status](https://app.fossa.io/api/projects/git%2Bgithub.com%2Fbarajs%2Fbara.svg?type=large)](https://app.fossa.io/projects/git%2Bgithub.com%2Fbarajs%2Fbara?ref=badge_large)
