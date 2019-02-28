@@ -4,33 +4,40 @@ import xs from 'xstream';
 import {Event} from './event';
 import {Trigger} from './trigger';
 
-let run: () => void;
-let useTriggerIndex = 0;
-
-interface TriggerHook extends Array<Trigger|number> {
-  0: Trigger;
+export interface BaraApp {
+  (): {triggers: any[]};
 }
 
-const useTriggerHooks: TriggerHook[] = [];
+function Bara() {
+  const hooks: any[] = [];
+  const triggers: Trigger[][] = [];
+  let currentHook = 0;
 
-function registerTriggerHook(index: number, trigger: Trigger) {
-  if (!useTriggerHooks[index]) {
-    // activating trigger to registering events
-    trigger.activate();
-    useTriggerHooks!.push([trigger]);
+  function init() {}
+
+  function registerTriggers(triggers) {
+    triggers[currentHook] = triggers;
+    console.log('All Triggers Has Been Registered!');
   }
-  return useTriggerHooks[index];
-}
 
-export function useTrigger(trigger: Trigger): TriggerHook {
-  const hook = registerTriggerHook(useTriggerIndex, trigger);
-  useTriggerIndex++;
-  return hook;
-}
-
-export function bara(app: () => void) {
-  run = () => {
-    app();
+  return {
+    run: (app: BaraApp) => {
+      const {triggers} = app();
+      registerTriggers(triggers);
+      currentHook = 0;
+    },
+    useEvent: () => {
+      const eventData = null;
+      return [eventData];
+    },
+    useState: (initValue: any) => {
+      hooks[currentHook] = hooks[currentHook] || initValue;
+      const setStateHookIndex = currentHook;
+      const setState = (newState: any) => (hooks[setStateHookIndex] = newState);
+      return [hooks[currentHook++], setState];
+    },
   };
-  return {run};
 }
+
+const {run, useState} = Bara();
+export {run, useState};

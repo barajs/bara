@@ -13,7 +13,7 @@
     "release": "lerna publish --yes --conventional-commits",
     "cli": "yarn workspace bara-cli"
   },
-  "workspaces": ["packages/*"],
+  "workspaces": ["packages/*", "examples/*"],
   "workspace-sources": {
     "*": ["packages/*/src"]
   },

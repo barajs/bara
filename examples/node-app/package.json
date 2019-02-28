@@ -1,0 +1,20 @@
+{
+  "name": "node-app",
+  "version": "1.0.0",
+  "description": "Example Bara Application",
+  "main": "build/index.js",
+  "repository": "https://github.com/barajs/bara",
+  "author": "nampdn",
+  "license": "MIT",
+  "private": true,
+  "scripts": {
+    "start": "ts-node-dev --respawn ./src/index.ts"
+  },
+  "dependencies": {
+    "@bara/core": "^0.1.0"
+  },
+  "devDependencies": {
+    "ts-node-dev": "1.0.0-pre.32",
+    "typescript": "3.2.4"
+  }
+}
