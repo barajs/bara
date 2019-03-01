@@ -33,7 +33,8 @@ function Bara() {
     triggers.map((trigger, triggerId) => {
       if (!triggerList[triggerId]) {
         triggerList[triggerId] = trigger;
-        // Execute trigger function, this function should be called at the first time Bara application initialized.
+        // Execute trigger function, this function should be called at the first
+        // time Bara application initialized.
         execTrigger(triggerId);
         console.log(`Trigger ${triggerId} "${trigger.name}" activated!`);
       }
@@ -80,15 +81,15 @@ function Bara() {
     useEvent: (eventName: string, triggerId: number, depsArray: any[]): any => {
       const hasNoDeps = !depsArray;
       let deps = hooks[currentHook];
-      const hasChangedDeps = deps
-        ? !depsArray.every((el, i) => el === deps[i])
-        : true;
+      const hasChangedDeps =
+          deps ? !depsArray.every((el, i) => el === deps[i]) : true;
       if (hasNoDeps || hasChangedDeps) {
         deps = depsArray;
       }
       currentHook++;
       console.log(
-        `No deps: ${hasNoDeps} - Deps Changed: ${hasChangedDeps} - Deps: ${deps} - Current Hook: ${currentHook}`,
+          `No deps: ${hasNoDeps} - Deps Changed: ${hasChangedDeps} - Deps: ${
+              deps} - Current Hook: ${currentHook}`,
       );
       return registerEvent(eventName, triggerId);
     },
@@ -97,7 +98,7 @@ function Bara() {
       const setStateHookIndex = currentHook;
       const setState = (newState: any) => {
         console.log(
-          `State of ${hooks[currentHook]} will update to ${newState}`,
+            `State of ${hooks[currentHook]} will update to ${newState}`,
         );
         hooks[setStateHookIndex] = newState;
       };
