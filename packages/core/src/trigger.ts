@@ -2,7 +2,7 @@ import {Event} from './event';
 
 export interface Trigger {
   name: string;
-  activate: () => void;
+  activate: (triggerId: number) => void;
 }
 
 let useEventIndex = 0;
@@ -13,7 +13,7 @@ interface EventAction {
   (eventName: string, payload: unknown): void;
 }
 
-interface EventHook<T> extends Array<Event<T>|EventAction> {
+interface EventHook<T> extends Array<Event<T> | EventAction> {
   0: Event<T>;
   1: EventAction;
 }
@@ -39,13 +39,10 @@ export function useEvent<T>(event: Event<T>) {
   return [events, () => {}];
 }
 
-export function createTrigger(name: string, triggerFunc: () => void): Trigger {
+export function createTrigger(name: string, triggerFunc: (triggerId: number) => void): Trigger {
   const trigger: Trigger = {
     name,
-    activate: () => {
-      triggerFunc();
-      console.log(`Registered trigger: ${name}`);
-    },
+    activate: triggerFunc,
   };
   return trigger;
 }

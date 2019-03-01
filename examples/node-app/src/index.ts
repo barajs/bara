@@ -1,10 +1,10 @@
 import {run} from '@bara/core';
-import first from './first-trigger';
+import firstTrigger from './first-trigger';
 
 const app = () => {
   console.log('Hello Bara application!');
   return {
-    triggers: [first],
+    triggers: [firstTrigger],
   };
 };
 
