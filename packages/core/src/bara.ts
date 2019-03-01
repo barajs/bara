@@ -24,16 +24,18 @@ function Bara() {
   const appSeconds = xs.periodic(3000);
   eventHooks.push(['APP_SECONDS', appSeconds]);
 
-  function registerStreams(streams) {}
+  function execTrigger(triggerId: number) {
+    triggerList[triggerId].activate(triggerId);
+    currentHook = 0;
+  }
 
   function registerTriggers(triggers: Trigger[]) {
-    triggers.map((trigger, index) => {
-      if (!triggerList[index]) {
-        triggerList[index] = trigger;
-        trigger.activate(
-            index);  // Execute trigger function, this function should be called
-                     // at the first time Bara application initialized.
-        console.log(`Trigger ${index} "${trigger.name}" activated!`);
+    triggers.map((trigger, triggerId) => {
+      if (!triggerList[triggerId]) {
+        triggerList[triggerId] = trigger;
+        // Execute trigger function, this function should be called at the first time Bara application initialized.
+        execTrigger(triggerId);
+        console.log(`Trigger ${triggerId} "${trigger.name}" activated!`);
       }
     });
     console.log(`${triggers.length} trigger(s) has been registered!`);
@@ -54,7 +56,7 @@ function Bara() {
           next: value => {
             eventDatas[currentStreamHook] = value;
             if (triggerList[triggerId] !== undefined) {
-              triggerList[triggerId].activate(triggerId);
+              execTrigger(triggerId);
             }
           },
           complete: () => console.log(`EVENT ${eventName} STOPPED LISTENING!`),
@@ -75,13 +77,30 @@ function Bara() {
       currentHook = 0;
       currentStreamHook = 0;
     },
-    useEvent: (eventName: string, triggerId: number): any => {
+    useEvent: (eventName: string, triggerId: number, depsArray: any[]): any => {
+      const hasNoDeps = !depsArray;
+      let deps = hooks[currentHook];
+      const hasChangedDeps = deps
+        ? !depsArray.every((el, i) => el === deps[i])
+        : true;
+      if (hasNoDeps || hasChangedDeps) {
+        deps = depsArray;
+      }
+      currentHook++;
+      console.log(
+        `No deps: ${hasNoDeps} - Deps Changed: ${hasChangedDeps} - Deps: ${deps} - Current Hook: ${currentHook}`,
+      );
       return registerEvent(eventName, triggerId);
     },
     useState: (initValue: any) => {
       hooks[currentHook] = hooks[currentHook] || initValue;
       const setStateHookIndex = currentHook;
-      const setState = (newState: any) => (hooks[setStateHookIndex] = newState);
+      const setState = (newState: any) => {
+        console.log(
+          `State of ${hooks[currentHook]} will update to ${newState}`,
+        );
+        hooks[setStateHookIndex] = newState;
+      };
       return [hooks[currentHook++], setState];
     },
   };
