@@ -30,7 +30,9 @@ function Bara() {
     triggers.map((trigger, index) => {
       if (!triggerList[index]) {
         triggerList[index] = trigger;
-        trigger.activate(index); // Execute trigger function, this function should be called at the first time Bara application initialized.
+        trigger.activate(
+            index);  // Execute trigger function, this function should be called
+                     // at the first time Bara application initialized.
         console.log(`Trigger ${index} "${trigger.name}" activated!`);
       }
     });
