@@ -1,16 +1,23 @@
-import {createTrigger, useState, useEvent} from '@bara/core';
+import {createTrigger, useVar, useEvent} from '@bara/core';
 
-export default createTrigger('First Trigger', (triggerId: number) => {
-  const [count, setCount] = useState(0);
-  const [name, setName] = useState('Bara');
-  const hasSecondsEvent = useEvent('APP_SECONDS', triggerId, [count, name]);
-  if (hasSecondsEvent !== null) {
-    setName(`Bara-${count}`);
-    setCount(count + 1);
-    console.log(
-      `Event data: ${hasSecondsEvent} - Current ${name} count: ${count}`,
-    );
-  } else {
-    console.log('No event emitted!');
-  }
-});
+const firstTrigger = {
+  name: 'First Trigger',
+  event: (triggerId: number) => {
+    return useEvent('APP_SECONDS', triggerId, []);
+  },
+  action: (triggerId: number, triggeringEvent: any) => {
+    const [count, setCount] = useVar(0);
+    const [name, setName] = useVar('Bara');
+    if (triggeringEvent !== null) {
+      setName(`Bara-${count}`);
+      setCount(count + 1);
+      console.log(
+        `Event data: ${triggeringEvent} - Current ${name} count: ${count}`,
+      );
+    } else {
+      console.log('No event emitted!');
+    }
+  },
+};
+
+export default createTrigger(firstTrigger);
