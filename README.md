@@ -13,34 +13,7 @@ Our goal is to keep the learning curve simple as possible.
   <img align="center" src="./img/bara-illustrator.png" width="100%" alt="Bara Illustrator" />
 </p>
 
-<!-- toc -->
-- [Installation](#Installation)
-- [Commands](#commands)
-<!-- tocstop -->
-
-# Installation
-
-<!-- installation -->
-
-## Getting Started
-
-```sh-session
-$ npm install -g bara
-$ bara init my-app
-Initializing Bara project...
-
-$ bara (-v|--version|version)
-bara/0.1.0 darwin-x64 node-v10.9.0
-
-$ bara --help [COMMAND]
-USAGE
-  $ bara init : init new Bara project.
-  $ bara gen (stream|trigger|event|condition|action) : generate Bara specs.
-  $ bara start : start Bara main application.
-...
-```
-
-<!-- installationstop -->
+BaraJS still under heavy development. Its API is not yet stable. Use at your own risk!
 
 ## License
 [![FOSSA Status](https://app.fossa.io/api/projects/git%2Bgithub.com%2Fbarajs%2Fbara.svg?type=large)](https://app.fossa.io/projects/git%2Bgithub.com%2Fbarajs%2Fbara?ref=badge_large)
