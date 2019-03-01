@@ -7,23 +7,20 @@ Basic operator of a Bara application.
 ```
 yarn add @bara/core
 
-npm i @bara/core
+npm i --save @bara/core
 ```
 
 ## Usage
 
 ```javascript
-import bara, {useTrigger} from '@bara/core';
-import AwesomeTrigger from 'bara-awesome-trigger';
+import {run} from '@bara/core';
+import AwesomeTrigger from 'awesome-trigger';
 
 const awesomeApp = () => {
-    const [awesomeEvents, awesomeConditions, awesomeActions] = useTrigger(AwesomeTrigger);
-    return {
-        events: [...awesomeEvents],
-        conditions: [...awesomeConditions],
-        actions: [...awesomeActions]
-    }
-}
+  return {
+    triggers: [AwesomeTrigger],
+  };
+};
 
-bara(awesomeApp).run();
+run(awesomeApp);
 ```
