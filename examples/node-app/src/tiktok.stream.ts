@@ -15,4 +15,8 @@ const tiktok: BaraStream<number> = {
   },
 };
 
+export const ONLY_EVEN_SECOND = (triggeringEvent: any) => triggeringEvent.payload % 2 === 0;
+
+export const EVERY_X_SECOND = (x: number) => (triggeringEvent: any) => triggeringEvent.payload % x === 0;
+
 export default tiktok;

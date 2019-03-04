@@ -1,16 +1,11 @@
 import {register, useStream, useTrigger} from '@bara/core';
 import TikTokStream from './tiktok.stream';
-import TikTokTrigger from './tiktok.trigger';
+import {EveryTwoSecondsTrigger, EveryXSecondsTrigger} from './tiktok.trigger';
 
 const app = () => {
   useStream(TikTokStream);
-  //const [tiktok$] = useStream(TikTokStream);
-  //tiktok$.addListener({
-    //next: payload => {
-      //console.log(payload);
-    //},
-  //});
-  useTrigger(TikTokTrigger);
+  useTrigger(EveryTwoSecondsTrigger);
+  useTrigger(EveryXSecondsTrigger);
 };
 
 register(app);
