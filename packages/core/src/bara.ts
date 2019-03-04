@@ -11,12 +11,22 @@ export interface BaraApp {
   (): {triggers: any[]};
 }
 
+// Bara Application Algorithm
+// Step 1: Register Up Stream Events
+// Step 2: Register Triggers Event With Up Stream
+// Step 3: Stream Emitting Events
+// Step 4: Trigger Run Conditions Filter
+// Step 5: Trigger Execute Actions When The Conditions Is Passed
+
 function Bara() {
   const hooks: any[] = [];
   const streamHooks: any[] = [];
   const eventHooks: any[] = [];
   const eventDatas: any[] = [];
   const triggerList: any[] = [];
+  // NEW
+  const triggerRegistry: any[] = [];
+
   let currentHook = 0;
   let currentStreamHook = 0;
 
@@ -29,14 +39,16 @@ function Bara() {
     currentHook = 0;
   }
 
+  function registerTrigger(triggerId, trigger) {
+    triggerRegistry.push([{event: trigger.event()}]);
+    console.log(`Trigger ${triggerId} "${trigger.name}" activated!`);
+  }
+
   function registerTriggers(triggers: Trigger[]) {
     triggers.map((trigger, triggerId) => {
       if (!triggerList[triggerId]) {
         triggerList[triggerId] = trigger;
-        // Execute trigger function, this function should be called at the first
-        // time Bara application initialized.
-        execTrigger(triggerId);
-        console.log(`Trigger ${triggerId} "${trigger.name}" activated!`);
+        registerTrigger(triggerId, trigger);
       }
     });
     console.log(`${triggers.length} trigger(s) has been registered!`);
@@ -77,6 +89,7 @@ function Bara() {
       currentHook = 0;
       currentStreamHook = 0;
     },
+    useEventSource: (eventName: string) => (triggerId: number) => {},
     useEvent: (eventName: string, triggerId: number, depsArray: any[]): any => {
       const hasNoDeps = !depsArray;
       let deps = hooks[currentHook];
@@ -99,5 +112,5 @@ function Bara() {
   };
 }
 
-const {run, useVar, useEvent} = Bara();
-export {run, useVar, useEvent};
+const {run, useVar, useEvent, useEventSource} = Bara();
+export {run, useVar, useEvent, useEventSource};
