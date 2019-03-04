@@ -20,7 +20,7 @@ export interface StreamAction<T> {
 export interface BaraTrigger {
   name: string;
   event: (triggerName: string) => void;
-  conditions?: (triggerId: number) => void;
+  condition?: (triggeringEvent: any) => boolean;
   action: (triggeringEvent: any) => void;
 }
 
@@ -144,7 +144,13 @@ function Bara() {
             `[Bara Event] Found stream ${upStreamRegistry[0]} of event types ${
                 eventType}`,
         );
-        const eventStream = upStreamRegistry[1].stream.subscribe({
+        const newStream = upStreamRegistry[1].stream.filter(data => {
+          if ('condition' in currentTrigger.config) {
+            return currentTrigger.config.condition!(data);
+          }
+          return true;
+        });
+        const eventStream = newStream.subscribe({
           next: payload => {
             currentTrigger.config.action(payload);
           },
@@ -159,7 +165,9 @@ function Bara() {
       // Create new stream based on current event type or use existing one.
       // Add event listener to the up stream
     },
-    useCondition: () => {},
+    useCondition: (conditionFunc: (data: any) => boolean) => (
+        triggeringEvent: any,
+        ): boolean => conditionFunc(triggeringEvent),
     useAction: () => {},
   };
 }
