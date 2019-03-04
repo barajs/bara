@@ -161,14 +161,14 @@ function Bara() {
                 eventType}`,
         );
       }
-      console.log(`[Bara Event] Registered ${eventType} from ${triggerName}`);
-      // Create new stream based on current event type or use existing one.
-      // Add event listener to the up stream
+      console.debug(`[Bara Event] Registered ${eventType} from ${triggerName}`);
     },
     useCondition: (conditionFunc: (data: any) => boolean) => (
         triggeringEvent: any,
         ): boolean => conditionFunc(triggeringEvent),
-    useAction: () => {},
+    useAction: (actionFunc: (data: any) => void) => (triggeringEvent: any) => {
+      actionFunc(triggeringEvent);
+    },
   };
 }
 
