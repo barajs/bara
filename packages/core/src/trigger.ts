@@ -2,7 +2,7 @@ export interface Trigger {
   name: string;
   event?: (triggerId: number) => void;
   conditions?: (triggerId: number) => void;
-  action: (triggerId: number, triggeringEvent: any) => void;
+  action: (triggeringEvent?: any) => void;
   activate?: (triggerId: number) => void;
 }
 
