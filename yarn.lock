@@ -10110,10 +10110,10 @@ xml-name-validator@^3.0.0:
   resolved "https://registry.yarnpkg.com/xml-name-validator/-/xml-name-validator-3.0.0.tgz#6ae73e06de4d8c6e47f9fb181f78d648ad457c6a"
   integrity sha512-A5CUptxDsvxKJEU3yO6DuWBSJz/qizqzJKOMIfUJHETbBw/sFaDxgd6fxm1ewUaM0jZ444Fc5vC5ROYurg/4Pw==
 
-xstream@11.10.0:
-  version "11.10.0"
-  resolved "https://registry.yarnpkg.com/xstream/-/xstream-11.10.0.tgz#55a2769672711220fda61678080c130a6401be3d"
-  integrity sha512-jzFCiRqGtrJi2S1/RPxVFgJwWVBzy4suMPBXlhOi0BJC7VvsXgo2yOHWnOasnj24n2Dlj2Mgfl6fJXPOYmpHFA==
+xstream@11.11.0:
+  version "11.11.0"
+  resolved "https://registry.yarnpkg.com/xstream/-/xstream-11.11.0.tgz#2c963cf0a6cb3eafecb57eaeae16c9850235b422"
+  integrity sha512-0zF3PLsHrmbToPBgX1jYZFNw+t5octSFJgVRH44HGlGBBjY7gscvDQOZvty8IQV15Snia1RcLPECWDfEaE4aXg==
   dependencies:
     symbol-observable "1.2.0"
 
