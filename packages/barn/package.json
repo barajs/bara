@@ -45,7 +45,7 @@
   "dependencies": {
     "@bara/basics": "^2.4.0",
     "@bara/core": "^2.4.0",
-    "dot-prop": "5.0.0"
+    "dot-prop": "5.0.1"
   },
   "gitHead": "f4c8920813b598869d4e664195ca7838532dd17f"
 }
