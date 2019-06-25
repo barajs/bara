@@ -27,7 +27,7 @@
   },
   "devDependencies": {
     "@types/jest": "24.0.15",
-    "concurrently": "4.1.0",
+    "concurrently": "4.1.1",
     "jest": "24.8.0",
     "npm-watch": "0.6.0",
     "prettier": "1.18.2",
