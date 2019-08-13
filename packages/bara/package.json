@@ -51,7 +51,7 @@
     "size-limit": "1.3.8",
     "ts-loader": "5.4.5",
     "typescript": "3.5.3",
-    "webpack": "4.39.1",
+    "webpack": "4.39.2",
     "webpack-cli": "3.3.6"
   },
   "gitHead": "f4c8920813b598869d4e664195ca7838532dd17f"
