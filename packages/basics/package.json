@@ -30,7 +30,7 @@
     "@types/p-all": "2.0.0",
     "concurrently": "4.1.1",
     "consola": "2.10.1",
-    "jest": "24.8.0",
+    "jest": "24.9.0",
     "npm-watch": "0.6.0",
     "prettier": "1.18.2",
     "ts-jest": "24.0.2",
