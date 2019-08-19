@@ -30,7 +30,7 @@
   "devDependencies": {
     "@types/dot-prop": "4.2.0",
     "@types/fbemitter": "2.0.32",
-    "@types/jest": "24.0.17",
+    "@types/jest": "24.0.18",
     "concurrently": "4.1.2",
     "jest": "24.9.0",
     "npm-watch": "0.6.0",
