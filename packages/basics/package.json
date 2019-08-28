@@ -38,7 +38,7 @@
     "tslint-config-airbnb": "5.11.1",
     "tslint-config-prettier": "1.18.0",
     "tslint-react": "4.0.0",
-    "typescript": "3.5.3"
+    "typescript": "3.6.2"
   },
   "dependencies": {
     "@bara/core": "^2.5.0",
