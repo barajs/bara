@@ -52,7 +52,7 @@
     "ts-loader": "5.4.5",
     "typescript": "3.6.2",
     "webpack": "4.39.3",
-    "webpack-cli": "3.3.7"
+    "webpack-cli": "3.3.8"
   },
   "gitHead": "f4c8920813b598869d4e664195ca7838532dd17f"
 }
