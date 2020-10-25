@@ -48,7 +48,7 @@
     "webpack-cli": "3.3.9"
   },
   "dependencies": {
-    "xstream": "11.11.0"
+    "xstream": "11.14.0"
   },
   "gitHead": "1004f432a9dc0621963ae556f58b8ae4ef61ca49"
 }
